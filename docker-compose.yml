@@ -1,0 +1,22 @@
+version: "3"
+services:
+    frontend:
+        container_name: todo-frontend
+        build:
+            context: ./todo-frontend
+            dockerfile: Dockerfile
+        image: aditya-todo-frontend
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./todo-frontend:/app
+    backend:
+        container_name: todo-api
+        build:
+            context: ./todo-api
+            dockerfile: Dockerfile
+        image: aditya-todo-api
+        ports:
+            - "3001:3001"
+        volumes:
+            - ./todo-api:/usr/src/app
